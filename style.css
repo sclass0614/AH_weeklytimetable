@@ -55,7 +55,7 @@
 }
 
 /* 다크 모드 */
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --bg-primary: #0f172a;
     --bg-secondary: #1e293b;
@@ -65,7 +65,7 @@
     --text-muted: #64748b;
     --border-color: #334155;
   }
-}
+} */
 
 /* 기본 스타일 */
 body {
@@ -679,7 +679,7 @@ small {
 @media print {
   @page {
     size: A4 landscape;
-    margin: 1cm;
+    margin: 1.2cm 1cm 1.5cm 1cm;
   }
 
   body {
@@ -688,7 +688,7 @@ small {
   }
 
   .app-container {
-    padding: 0;
+    padding: 0 0 20px 0;
     gap: 0;
     max-width: none;
   }
@@ -712,6 +712,7 @@ small {
   .timetable-container {
     box-shadow: none;
     border: none;
+    padding-bottom: 15px;
   }
 
   /* 시간표 테이블 */
@@ -1031,7 +1032,7 @@ small {
 }
 
 /* 고해상도 디스플레이 최적화 */
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+/* @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
   .activity-time,
   .activity-tag {
     border-width: 0.5px;
@@ -1041,4 +1042,4 @@ small {
   .timetable-table td {
     border-width: 0.5px;
   }
-}
+} */
