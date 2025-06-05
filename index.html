@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="수파베이스 기반 동적 시간표 웹앱">
+    <meta name="keywords" content="시간표, 스케줄, 일정관리, timetable">
+    <title>Weekly 우리집 일상선택</title>
+    
+    <!-- CSS 파일 -->
+    <link rel="stylesheet" href="style.css">
+    <!-- 폰트 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Supabase CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabse.js"></script>
+    <script src="script.js"></script>
+    <script type="module" src="https://sclass0614.github.io/authCheck/authCheck.js"></script>
+    
+
+</head>
+<body>
+    <div class="app-container">
+        <!-- 주 선택 컨트롤 -->
+        <section class="week-selector" aria-label="주차 선택">
+            <div class="week-controls">
+                <button type="button" class="week-btn week-btn--prev" id="prevWeekBtn" aria-label="이전 주">
+                    <span class="week-btn-icon">‹</span>
+                </button>
+                
+                <div class="week-info">
+                    <h1 class="week-title" id="weekTitle">2024년 1월 1주차 시간표</h1>
+                    <p class="week-range" id="weekRange">01.01 - 01.07</p>
+                </div>
+                
+                <button type="button" class="week-btn week-btn--next" id="nextWeekBtn" aria-label="다음 주">
+                    <span class="week-btn-icon">›</span>
+                </button>
+            </div>
+            
+            <!-- 인쇄 버튼 -->
+            <div class="week-actions">
+                <button type="button" class="print-btn" id="printBtn" onclick="printTimetableByRows()" aria-label="시간표 인쇄">
+                    🖨️ 인쇄
+                </button>
+            </div>
+        </section>
+
+        <!-- 시간표 메인 컨테이너 -->
+        <main class="timetable-container">
+            <!-- 시간표 -->
+            <div class="timetable" id="timetable">
+                <!-- 테이블이 JavaScript로 동적 생성됨 -->
+                <div class="timetable-body" id="timetableBody">
+                    <!-- 동적으로 생성될 시간표 테이블 -->
+                </div>
+            </div>
+        </main>
+
+        <!-- 하단 정보 -->
+        <footer class="footer">
+            <p>마지막 업데이트: <span id="lastUpdate">-</span></p>
+        </footer>
+    </div>
+
+    <!-- JavaScript 파일들 -->
+
+    
+</body>
+</html> 

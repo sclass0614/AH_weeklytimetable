@@ -1,0 +1,1021 @@
+/* CSS Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* CSS 변수 (Design System) */
+:root {
+  /* 폰트 크기 */
+  font-size: clamp(16px, 2.5vw, 20px);
+
+  /* 색상 */
+  --primary-color: #3b82f6;
+  --primary-dark: #1d4ed8;
+  --primary-light: #93c5fd;
+  --secondary-color: #8b5cf6;
+  --success-color: #10b981;
+  --warning-color: #f59e0b;
+  --error-color: #ef4444;
+
+  /* 배경 및 텍스트 색상 */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --bg-tertiary: #f1f5f9;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+
+  /* 그림자 */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+    0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+  /* 간격 */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+
+  /* 테두리 */
+  --border-radius: 0.5rem;
+  --border-radius-lg: 0.75rem;
+  --border-width: 1px;
+  --border-color: #e2e8f0;
+
+  /* 애니메이션 */
+  --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 다크 모드 */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --bg-tertiary: #334155;
+    --text-primary: #f8fafc;
+    --text-secondary: #cbd5e1;
+    --text-muted: #64748b;
+    --border-color: #334155;
+  }
+}
+
+/* 기본 스타일 */
+body {
+  font-family: "Noto Sans KR", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, sans-serif;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  line-height: clamp(1.4, 1.2 + 0.5vw, 1.6);
+  color: var(--text-primary);
+  background-color: var(--bg-secondary);
+  font-weight: 400;
+}
+
+h1 {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 700;
+}
+
+h2 {
+  font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+  font-weight: 600;
+}
+
+h3 {
+  font-size: clamp(1.3rem, 3vw, 2rem);
+  font-weight: 600;
+}
+
+small {
+  font-size: clamp(0.8rem, 2vw, 1rem);
+}
+
+/* 앱 컨테이너 - 더 넓게 확장 */
+.app-container {
+  min-height: 100vh;
+  max-width: 100%;
+  margin: 0;
+  padding: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+/* 주 선택 컨트롤 - 메인 헤더 역할 */
+.week-selector {
+  background: linear-gradient(
+    135deg,
+    #10b981,
+    #34d399
+  );
+  border-radius: var(--border-radius-lg);
+  padding: 10px var(--spacing-xl) 10px;
+  box-shadow: 
+    0 4px 6px -1px rgba(16, 185, 129, 0.1),
+    0 2px 4px -1px rgba(16, 185, 129, 0.06);
+  color: white;
+  text-align: center;
+  max-width: 100%;
+  margin: 0 auto var(--spacing-md);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.week-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-md);
+  gap: var(--spacing-md);
+}
+
+.week-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  cursor: pointer;
+  transition: var(--transition);
+  font-size: 1.2rem;
+  backdrop-filter: blur(10px);
+}
+
+.week-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.week-btn:active {
+  transform: translateY(0);
+}
+
+.week-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.week-info {
+  text-align: center;
+  flex: 1;
+}
+
+.week-title {
+  margin-bottom: var(--spacing-xs);
+  color: white;
+  font-size: clamp(1.3rem, 3.5vw, 2.2rem);
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.week-range {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: clamp(0.9rem, 2.2vw, 1.1rem);
+  font-weight: 300;
+}
+
+.today-btn {
+  padding: var(--spacing-xs) var(--spacing-md);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: var(--border-radius);
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  font-size: clamp(0.75rem, 1.6vw, 0.9rem);
+  height: 28px;
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.today-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* 인쇄 버튼 영역 */
+.week-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: var(--spacing-sm);
+}
+
+.print-btn {
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: var(--border-radius);
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: clamp(0.8rem, 2.2vw, 1rem);
+  white-space: nowrap;
+}
+
+.print-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.print-btn:active {
+  transform: translateY(0);
+}
+
+/* 시간표 컨테이너 - 전체 폭 활용 */
+.timetable-container {
+  flex: 1;
+  background: var(--bg-primary);
+  border-radius: var(--border-radius);
+  padding: 0;
+  box-shadow: var(--shadow-sm);
+  border: var(--border-width) solid var(--border-color);
+  width: 100%;
+  overflow: hidden;
+}
+
+/* 시간표 - 전체 폭 활용 */
+.timetable {
+  width: 100%;
+  height: 100%;
+}
+
+.timetable-body {
+  width: 100%;
+  height: 100%;
+}
+
+/* 시간표 테이블 */
+.timetable-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--bg-primary);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  table-layout: fixed;
+}
+
+/* 테이블 헤더 */
+.timetable-table thead {
+  background: #f0fdf4;
+}
+
+.timetable-table th {
+  padding: var(--spacing-md);
+  text-align: center;
+  font-weight: 700;
+  border: var(--border-width) solid #d1fae5;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #f0fdf4;
+  color: #166534;
+  transition: var(--transition);
+  font-size: clamp(0.9rem, 2.3vw, 1.1rem);
+}
+
+.timetable-table th:hover {
+  background: #ecfdf5;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(16, 185, 129, 0.1);
+}
+
+.period-header {
+  background: #10b981 !important;
+  color: white !important;
+  font-size: clamp(1.1rem, 2.8vw, 1.4rem);
+  width: clamp(60px, 10vw, 120px);
+  min-width: clamp(60px, 10vw, 120px);
+  border: 1px solid #059669 !important;
+  box-shadow: 0 1px 3px rgba(16, 185, 129, 0.2);
+}
+
+.day-header {
+  background: #f0fdf4 !important;
+  color: #166534 !important;
+  font-size: clamp(0.85rem, 2.2vw, 1.1rem);
+  width: calc((100% - clamp(60px, 10vw, 120px)) / 7);
+  font-weight: 600;
+  white-space: nowrap;
+  border: 1px solid #d1fae5 !important;
+}
+
+.day-header-date {
+  font-weight: 700;
+  font-size: clamp(0.8rem, 2vw, 1rem);
+  line-height: 1.2;
+}
+
+.day-header-day {
+  font-weight: 400;
+  font-size: clamp(0.7rem, 1.8vw, 0.9rem);
+  opacity: 0.8;
+  line-height: 1.1;
+}
+
+/* 테이블 본문 */
+.timetable-table tbody tr {
+  transition: var(--transition);
+}
+
+.timetable-table tbody tr:hover {
+  background: var(--bg-secondary);
+}
+
+.timetable-table td {
+  border: var(--border-width) solid var(--border-color);
+  vertical-align: top;
+  position: relative;
+  width: calc((100% - clamp(60px, 10vw, 120px)) / 7);
+}
+
+/* 차수 셀 */
+.period-cell {
+  background: var(--primary-color);
+  width: clamp(60px, 10vw, 120px) !important;
+  min-width: clamp(60px, 10vw, 120px);
+  max-width: clamp(60px, 10vw, 120px);
+  padding: var(--spacing-lg);
+  text-align: center;
+}
+
+/* 차수별 배경색 클래스들 */
+.period-1 {
+  background: #d1fae5 !important;
+  color: #064e3b !important;
+} /* 파스텔 라임그린 (기존 7차) */
+.period-2 {
+  background: #fef3c7 !important;
+  color: #92400e !important;
+} /* 파스텔 옐로우 */
+.period-3 {
+  background: #fed7aa !important;
+  color: #9a3412 !important;
+} /* 파스텔 오렌지 */
+.period-4 {
+  background: #e9d5ff !important;
+  color: #581c87 !important;
+} /* 파스텔 퍼플 */
+.period-5 {
+  background: #fecaca !important;
+  color: #991b1b !important;
+} /* 파스텔 레드 */
+.period-6 {
+  background: #cffafe !important;
+  color: #164e63 !important;
+} /* 파스텔 시안 */
+.period-7 {
+  background: #dbeafe !important;
+  color: #1e3a8a !important;
+} /* 파스텔 블루 (기존 1차) */
+.period-8 {
+  background: #fed7aa !important;
+  color: #9a3412 !important;
+} /* 파스텔 오렌지2 */
+.period-9 {
+  background: #fce7f3 !important;
+  color: #831843 !important;
+} /* 파스텔 핑크 */
+.period-10 {
+  background: #e0e7ff !important;
+  color: #312e81 !important;
+} /* 파스텔 인디고 */
+
+.period-number {
+  color: #000000;
+  font-size: clamp(1.1rem, 2.8vw, 1.4rem);
+  font-weight: 700;
+  white-space: nowrap;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* 활동 셀 - 배경을 무색으로 변경 */
+.activity-cell {
+  padding: var(--spacing-md);
+  min-height: 120px;
+  width: calc((100% - clamp(60px, 10vw, 120px)) / 7) !important;
+  max-width: calc((100% - clamp(60px, 10vw, 120px)) / 7);
+  position: relative;
+  background: var(--bg-primary);
+  border-left: none;
+  vertical-align: top;
+}
+
+.activity-cell--filled {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.activity-cell--empty {
+  background: var(--bg-primary);
+  color: var(--text-muted);
+  text-align: center;
+  height: 120px;
+}
+
+.empty-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  font-style: italic;
+  opacity: 0.6;
+}
+
+/* 활동 시간 표시 - 현대적이고 세련된 디자인 */
+.activity-time {
+  font-size: clamp(0.6rem, 3vw, 1rem);
+  font-weight: 600;
+  text-align: center;
+  padding: clamp(2px, 0.5vw, var(--spacing-sm)) clamp(4px, 1vw, var(--spacing-md));
+  background: #f0fdf4;
+  color: #166534;
+  border: 1px solid #bbf7d0;
+  border-radius: 6px;
+  margin-bottom: var(--spacing-md);
+  font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, sans-serif;
+  letter-spacing: 0.5px;
+  position: relative;
+  box-shadow: 0 1px 3px rgba(16, 185, 129, 0.08);
+  transition: var(--transition);
+  display: block;
+  min-height: clamp(24px, 6vw, 32px);
+  width: 100%;
+  margin: 0 0 var(--spacing-md) 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: clamp(24px, 6vw, 32px);
+}
+
+.activity-time:hover {
+  background: #ecfdf5;
+  border-color: #86efac;
+  box-shadow: 0 2px 6px rgba(16, 185, 129, 0.12);
+  transform: translateY(-1px);
+}
+
+.activity-time::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    #10b981 20%,
+    #34d399 50%,
+    #10b981 80%,
+    transparent 100%
+  );
+  border-radius: 1px;
+  opacity: 0.7;
+}
+
+.activity-time:hover::after {
+  opacity: 1;
+  height: 3px;
+  bottom: 3px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    #059669 20%,
+    #10b981 50%,
+    #059669 80%,
+    transparent 100%
+  );
+}
+
+.activity-time:before {
+  content: "";
+}
+
+/* 다크 모드에서의 시간 표시 */
+@media (prefers-color-scheme: dark) {
+  .activity-time {
+    background: #064e3b;
+    color: #a7f3d0;
+    border-color: #065f46;
+    box-shadow: 0 1px 3px rgba(6, 78, 59, 0.3);
+  }
+  
+  .activity-time:hover {
+    background: #065f46;
+    border-color: #10b981;
+    box-shadow: 0 2px 6px rgba(16, 185, 129, 0.2);
+  }
+  
+  .activity-time::after {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      #34d399 20%,
+      #6ee7b7 50%,
+      #34d399 80%,
+      transparent 100%
+    );
+  }
+  
+  .activity-time:hover::after {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      #10b981 20%,
+      #34d399 50%,
+      #10b981 80%,
+      transparent 100%
+    );
+  }
+}
+
+/* 활동 컨테이너 */
+.activities-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  width: 100%;
+}
+
+/* 파스텔 색상 클래스들 */
+.pastel-pink {
+  background: #fce7f3;
+  color: #831843;
+  border: 1px solid #f9a8d4;
+}
+.pastel-blue {
+  background: #dbeafe;
+  color: #1e3a8a;
+  border: 1px solid #93c5fd;
+}
+.pastel-green {
+  background: #d1fae5;
+  color: #064e3b;
+  border: 1px solid #6ee7b7;
+}
+.pastel-yellow {
+  background: #fef3c7;
+  color: #92400e;
+  border: 1px solid #fbbf24;
+}
+.pastel-purple {
+  background: #e9d5ff;
+  color: #581c87;
+  border: 1px solid #c4b5fd;
+}
+.pastel-orange {
+  background: #fed7aa;
+  color: #9a3412;
+  border: 1px solid #fdba74;
+}
+.pastel-teal {
+  background: #ccfbf1;
+  color: #134e4a;
+  border: 1px solid #5eead4;
+}
+.pastel-indigo {
+  background: #e0e7ff;
+  color: #312e81;
+  border: 1px solid #a5b4fc;
+}
+.pastel-rose {
+  background: #ffe4e6;
+  color: #881337;
+  border: 1px solid #fda4af;
+}
+.pastel-cyan {
+  background: #cffafe;
+  color: #164e63;
+  border: 1px solid #67e8f9;
+}
+
+/* 활동 태그 - 파스텔 색상 적용 */
+.activity-tag {
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--border-radius);
+  font-size: clamp(0.8rem, 2vw, 0.95rem);
+  font-weight: 600;
+  text-align: center;
+  transition: var(--transition);
+  cursor: pointer;
+  line-height: 1.4;
+  margin-bottom: var(--spacing-xs);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+.activity-tag:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.activity-tag:active {
+  transform: translateY(0);
+}
+
+/* 하단 정보 */
+.footer {
+  text-align: center;
+  padding: var(--spacing-md);
+  color: var(--text-muted);
+  font-size: clamp(0.8rem, 2vw, 0.9rem);
+}
+
+/* 인쇄 스타일 */
+@media print {
+  @page {
+    size: A4 landscape;
+    margin: 1cm;
+  }
+
+  body {
+    font-size: 11pt;
+    line-height: 1.3;
+  }
+
+  .app-container {
+    padding: 0;
+    gap: 0;
+    max-width: none;
+  }
+
+  /* week-selector 인쇄 최적화 */
+  .week-selector {
+    page-break-inside: avoid;
+    margin-bottom: 10px;
+  }
+
+  /* 인쇄 시 버튼 숨김 */
+  .week-btn {
+    display: none;
+  }
+
+  .week-actions {
+    display: none;
+  }
+
+  /* 시간표 컨테이너 */
+  .timetable-container {
+    box-shadow: none;
+    border: none;
+  }
+
+  /* 시간표 테이블 */
+  .timetable-table {
+    width: 100%;
+    /* border-collapse: collapse; */
+  }
+
+  .timetable-table th,
+  .timetable-table td {
+    padding: 6px;
+    font-size: 9pt;
+    text-align: center;
+    vertical-align: top;
+  }
+
+  /* 테이블 헤더 각 페이지마다 반복 */
+  .timetable-table thead {
+    display: table-header-group;
+  }
+
+  /* 테이블 본문 - 자연스럽게 페이지 나누기 */
+  .timetable-table tbody {
+    display: table-row-group;
+  }
+
+  /* 차수 셀 폭 고정 */
+  .period-cell {
+    width: 80px !important;
+    min-width: 80px !important;
+    max-width: 80px !important;
+  }
+
+  /* 차수 번호 폰트 크기 인쇄용 조정 */
+  .period-number {
+    font-size: 11pt !important;
+  }
+
+  /* 요일 셀 폭 균등 분배 */
+  .activity-cell {
+    width: calc((100% - 80px) / 7) !important;
+  }
+
+  /* 활동 시간 스타일 조정 */
+  .activity-time {
+    font-size: 8pt;
+    padding: 2px 4px;
+    margin-bottom: 4px;
+    line-height: 1.2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .activity-time:before {
+    display: none; /* 인쇄 시 이모지 제거 */
+  }
+
+  /* 활동 태그 크기 조정 */
+  .activity-tag {
+    font-size: 8pt;
+    padding: 2px 4px;
+    margin-bottom: 2px;
+    line-height: 1.2;
+  }
+
+  /* 빈 셀 스타일 */
+  .empty-indicator {
+    font-size: 9pt;
+  }
+  /* 테이블 전체를 감싸는 컨테이너에 테두리 추가 */
+  .timetable-container {
+    border: 2px solid #cccccc !important;
+    margin-bottom: 20px !important;
+  }
+
+  /* 하단 정보 숨김 */
+  .footer {
+    display: none;
+  }
+}
+
+/* ============================================
+   모바일 및 태블릿 특화 반응형 스타일
+   ============================================ */
+
+/* 모바일 최적화 (320px ~ 767px) */
+@media (max-width: 767px) {
+  .app-container {
+    padding: var(--spacing-sm);
+    gap: var(--spacing-md);
+  }
+
+  .week-selector {
+    padding: var(--spacing-sm) var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .week-controls {
+    gap: var(--spacing-sm);
+  }
+
+  .week-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  .week-title {
+    font-size: clamp(1.1rem, 4vw, 1.5rem);
+  }
+
+  .week-range {
+    font-size: clamp(0.8rem, 3vw, 1rem);
+  }
+
+  .print-btn {
+    font-size: clamp(0.7rem, 3vw, 0.9rem);
+    padding: var(--spacing-xs) var(--spacing-sm);
+  }
+
+  /* 모바일에서 테이블 최적화 */
+  .timetable-table th {
+    padding: var(--spacing-xs);
+    font-size: clamp(0.7rem, 3vw, 0.9rem);
+  }
+
+  .period-header {
+    font-size: clamp(0.9rem, 3.5vw, 1.1rem);
+  }
+
+  .day-header {
+    font-size: clamp(0.7rem, 3vw, 0.9rem);
+    padding: var(--spacing-xs);
+  }
+
+  .day-header-date {
+    font-size: clamp(0.65rem, 2.5vw, 0.8rem);
+  }
+
+  .day-header-day {
+    font-size: clamp(0.6rem, 2vw, 0.75rem);
+  }
+
+  .period-number {
+    font-size: clamp(0.9rem, 3.5vw, 1.1rem);
+  }
+
+  .activity-cell {
+    padding: var(--spacing-xs);
+    min-height: 80px;
+  }
+
+  .activity-time {
+    font-size: clamp(0.55rem, 3.5vw, 0.8rem);
+    min-height: clamp(20px, 8vw, 28px);
+    line-height: clamp(20px, 8vw, 28px);
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .activity-tag {
+    font-size: clamp(0.6rem, 3vw, 0.8rem);
+    padding: var(--spacing-xs) var(--spacing-sm);
+  }
+
+  .empty-indicator {
+    font-size: clamp(0.8rem, 3vw, 1rem);
+  }
+
+  /* 모바일 터치 최적화 */
+  .week-btn,
+  .print-btn,
+  .activity-tag {
+    min-height: 44px; /* 터치 타겟 최소 크기 */
+    min-width: 44px;
+  }
+}
+
+/* 태블릿 최적화 (768px ~ 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .app-container {
+    padding: var(--spacing-md);
+  }
+
+  .week-selector {
+    padding: var(--spacing-md) var(--spacing-lg);
+  }
+
+  .week-title {
+    font-size: clamp(1.4rem, 3vw, 1.8rem);
+  }
+
+  .week-range {
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+  }
+
+  .timetable-table th {
+    padding: var(--spacing-sm);
+  }
+
+  .activity-cell {
+    padding: var(--spacing-sm);
+    min-height: 100px;
+  }
+
+  .activity-time {
+    font-size: clamp(0.75rem, 2.5vw, 0.9rem);
+  }
+
+  .activity-tag {
+    font-size: clamp(0.75rem, 2vw, 0.9rem);
+  }
+}
+
+/* 모바일 가로 모드 최적화 */
+@media (max-width: 967px) and (orientation: landscape) {
+  .week-selector {
+    padding: var(--spacing-xs) var(--spacing-md);
+  }
+
+  .week-controls {
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .week-title {
+    font-size: clamp(1rem, 3vw, 1.3rem);
+  }
+
+  .week-range {
+    font-size: clamp(0.7rem, 2.5vw, 0.9rem);
+  }
+
+  .timetable-table th {
+    padding: var(--spacing-xs);
+  }
+
+  .activity-cell {
+    min-height: 60px;
+    padding: var(--spacing-xs);
+  }
+
+  .activity-time {
+    font-size: clamp(0.6rem, 2.5vw, 0.8rem);
+    min-height: clamp(18px, 5vw, 24px);
+    line-height: clamp(18px, 5vw, 24px);
+  }
+}
+
+/* 태블릿 세로 모드 최적화 */
+@media (min-width: 768px) and (max-width: 1023px) and (orientation: portrait) {
+  .week-controls {
+    gap: var(--spacing-lg);
+  }
+
+  .activity-cell {
+    min-height: 120px;
+  }
+
+  .activity-time {
+    min-height: clamp(28px, 4vw, 32px);
+    line-height: clamp(28px, 4vw, 32px);
+  }
+}
+
+/* 터치 디바이스 전용 스타일 */
+@media (hover: none) and (pointer: coarse) {
+  /* 호버 효과를 터치 피드백으로 대체 */
+  .week-btn:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .week-btn:active {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(0.95);
+  }
+
+  .print-btn:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .print-btn:active {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(0.95);
+  }
+
+  .activity-tag:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .activity-tag:active {
+    transform: scale(0.98);
+    opacity: 0.8;
+  }
+
+  .activity-time:hover {
+    transform: none;
+    box-shadow: 0 1px 3px rgba(16, 185, 129, 0.08);
+  }
+
+  .activity-time:active {
+    transform: scale(0.98);
+    opacity: 0.9;
+  }
+
+  /* 테이블 헤더 호버 제거 */
+  .timetable-table th:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+/* 고해상도 디스플레이 최적화 */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .activity-time,
+  .activity-tag {
+    border-width: 0.5px;
+  }
+
+  .timetable-table th,
+  .timetable-table td {
+    border-width: 0.5px;
+  }
+}
