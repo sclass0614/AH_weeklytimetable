@@ -37,8 +37,7 @@ const elements = {
   nextWeekBtn: null,
   todayBtn: null,
   timetable: null,
-  timetableBody: null,
-  lastUpdate: null
+  timetableBody: null
 };
 
 /**
@@ -67,10 +66,9 @@ function initializeElements() {
   elements.todayBtn = document.getElementById('todayBtn');
   elements.timetable = document.getElementById('timetable');
   elements.timetableBody = document.getElementById('timetableBody');
-  elements.lastUpdate = document.getElementById('lastUpdate');
 
   // 필수 요소 체크 (todayBtn 제외)
-  const requiredElementNames = ['weekTitle', 'weekRange', 'prevWeekBtn', 'nextWeekBtn', 'timetable', 'timetableBody', 'lastUpdate'];
+  const requiredElementNames = ['weekTitle', 'weekRange', 'prevWeekBtn', 'nextWeekBtn', 'timetable', 'timetableBody'];
   const missingElements = requiredElementNames.filter(name => !elements[name]);
 
   if (missingElements.length > 0) {
@@ -276,7 +274,6 @@ async function loadCurrentWeekData() {
 
     // 시간표 렌더링 (상태 표시 없이 바로 렌더링)
     renderTimetable();
-    updateLastUpdateTime();
 
   } catch (error) {
     console.error('주차 데이터 로드 중 오류:', error);
@@ -675,18 +672,7 @@ function showTimetable() {
   elements.timetable.hidden = false;
 }
 
-/**
- * 마지막 업데이트 시간 표시
- */
-function updateLastUpdateTime() {
-  const now = new Date();
-  const timeString = now.toLocaleTimeString('ko-KR', {
-    hour: '2-digit',
-    minute: '2-digit',
-    second: '2-digit'
-  });
-  elements.lastUpdate.textContent = timeString;
-}
+
 
 /**
  * 디버깅용 함수들
