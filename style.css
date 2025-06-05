@@ -110,14 +110,12 @@ small {
 
 /* 주 선택 컨트롤 - 메인 헤더 역할 */
 .week-selector {
-  background: linear-gradient(
-    135deg,
-    #10b981,
-    #34d399
-  );
+  background: linear-gradient(135deg,
+      #10b981,
+      #34d399);
   border-radius: var(--border-radius-lg);
   padding: 10px var(--spacing-xl) 10px;
-  box-shadow: 
+  box-shadow:
     0 4px 6px -1px rgba(16, 185, 129, 0.1),
     0 2px 4px -1px rgba(16, 185, 129, 0.06);
   color: white;
@@ -368,43 +366,63 @@ small {
 .period-1 {
   background: #d1fae5 !important;
   color: #064e3b !important;
-} /* 파스텔 라임그린 (기존 7차) */
+}
+
+/* 파스텔 라임그린 (기존 7차) */
 .period-2 {
   background: #fef3c7 !important;
   color: #92400e !important;
-} /* 파스텔 옐로우 */
+}
+
+/* 파스텔 옐로우 */
 .period-3 {
   background: #fed7aa !important;
   color: #9a3412 !important;
-} /* 파스텔 오렌지 */
+}
+
+/* 파스텔 오렌지 */
 .period-4 {
   background: #e9d5ff !important;
   color: #581c87 !important;
-} /* 파스텔 퍼플 */
+}
+
+/* 파스텔 퍼플 */
 .period-5 {
   background: #fecaca !important;
   color: #991b1b !important;
-} /* 파스텔 레드 */
+}
+
+/* 파스텔 레드 */
 .period-6 {
   background: #cffafe !important;
   color: #164e63 !important;
-} /* 파스텔 시안 */
+}
+
+/* 파스텔 시안 */
 .period-7 {
   background: #dbeafe !important;
   color: #1e3a8a !important;
-} /* 파스텔 블루 (기존 1차) */
+}
+
+/* 파스텔 블루 (기존 1차) */
 .period-8 {
   background: #fed7aa !important;
   color: #9a3412 !important;
-} /* 파스텔 오렌지2 */
+}
+
+/* 파스텔 오렌지2 */
 .period-9 {
   background: #fce7f3 !important;
   color: #831843 !important;
-} /* 파스텔 핑크 */
+}
+
+/* 파스텔 핑크 */
 .period-10 {
   background: #e0e7ff !important;
   color: #312e81 !important;
-} /* 파스텔 인디고 */
+}
+
+/* 파스텔 인디고 */
 
 .period-number {
   color: #000000;
@@ -495,14 +513,12 @@ small {
   transform: translateX(-50%);
   width: 80%;
   height: 2px;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    #10b981 20%,
-    #34d399 50%,
-    #10b981 80%,
-    transparent 100%
-  );
+  background: linear-gradient(90deg,
+      transparent 0%,
+      #10b981 20%,
+      #34d399 50%,
+      #10b981 80%,
+      transparent 100%);
   border-radius: 1px;
   opacity: 0.7;
 }
@@ -511,14 +527,12 @@ small {
   opacity: 1;
   height: 3px;
   bottom: 3px;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    #059669 20%,
-    #10b981 50%,
-    #059669 80%,
-    transparent 100%
-  );
+  background: linear-gradient(90deg,
+      transparent 0%,
+      #059669 20%,
+      #10b981 50%,
+      #059669 80%,
+      transparent 100%);
 }
 
 .activity-time:before {
@@ -533,33 +547,29 @@ small {
     border-color: #065f46;
     box-shadow: 0 1px 3px rgba(6, 78, 59, 0.3);
   }
-  
+
   .activity-time:hover {
     background: #065f46;
     border-color: #10b981;
     box-shadow: 0 2px 6px rgba(16, 185, 129, 0.2);
   }
-  
+
   .activity-time::after {
-    background: linear-gradient(
-      90deg,
-      transparent 0%,
-      #34d399 20%,
-      #6ee7b7 50%,
-      #34d399 80%,
-      transparent 100%
-    );
+    background: linear-gradient(90deg,
+        transparent 0%,
+        #34d399 20%,
+        #6ee7b7 50%,
+        #34d399 80%,
+        transparent 100%);
   }
-  
+
   .activity-time:hover::after {
-    background: linear-gradient(
-      90deg,
-      transparent 0%,
-      #10b981 20%,
-      #34d399 50%,
-      #10b981 80%,
-      transparent 100%
-    );
+    background: linear-gradient(90deg,
+        transparent 0%,
+        #10b981 20%,
+        #34d399 50%,
+        #10b981 80%,
+        transparent 100%);
   }
 }
 
@@ -577,68 +587,82 @@ small {
   color: #831843;
   border: 1px solid #f9a8d4;
 }
+
 .pastel-blue {
   background: #dbeafe;
   color: #1e3a8a;
   border: 1px solid #93c5fd;
 }
+
 .pastel-green {
   background: #d1fae5;
   color: #064e3b;
   border: 1px solid #6ee7b7;
 }
+
 .pastel-yellow {
   background: #fef3c7;
   color: #92400e;
   border: 1px solid #fbbf24;
 }
+
 .pastel-purple {
   background: #e9d5ff;
   color: #581c87;
   border: 1px solid #c4b5fd;
 }
+
 .pastel-orange {
   background: #fed7aa;
   color: #9a3412;
   border: 1px solid #fdba74;
 }
+
 .pastel-teal {
   background: #ccfbf1;
   color: #134e4a;
   border: 1px solid #5eead4;
 }
+
 .pastel-indigo {
   background: #e0e7ff;
   color: #312e81;
   border: 1px solid #a5b4fc;
 }
+
 .pastel-rose {
   background: #ffe4e6;
   color: #881337;
   border: 1px solid #fda4af;
 }
+
 .pastel-cyan {
   background: #cffafe;
   color: #164e63;
   border: 1px solid #67e8f9;
 }
 
-/* 활동 태그 - 파스텔 색상 적용 */
+/* 활동 태그 - 브라우저 간 일관성 보장 */
 .activity-tag {
-  padding: var(--spacing-sm) var(--spacing-md);
-  border-radius: var(--border-radius);
-  font-size: clamp(0.8rem, 2vw, 0.95rem);
-  font-weight: 600;
-  font-family: "Pretendard", "IBM Plex Sans KR", "Noto Sans KR", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  font-family: "Noto Sans KR", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   text-align: center;
-  transition: var(--transition);
   cursor: pointer;
-  line-height: 1.4;
-  margin-bottom: var(--spacing-xs);
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  hyphens: auto;
-  letter-spacing: -0.01em;
+  line-height: 1.3;
+  margin: 0 0 2px 0;
+  display: inline-block;
+  box-sizing: border-box;
+  /* 모든 브라우저에서 동일한 렌더링 */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  /* 패딩과 마진 정확히 제어 */
+  border: none;
+  outline: none;
+  vertical-align: baseline;
 }
 
 .activity-tag:hover {
@@ -679,7 +703,7 @@ small {
 @media print {
   @page {
     size: A4 landscape;
-    margin: 1.2cm 1cm 1.5cm 1cm;
+    margin: 0.5cm 0.3cm 0.3cm 0.3cm;
   }
 
   body {
@@ -695,7 +719,6 @@ small {
 
   /* week-selector 인쇄 최적화 */
   .week-selector {
-    page-break-inside: avoid;
     margin-bottom: 10px;
   }
 
@@ -768,21 +791,24 @@ small {
   }
 
   .activity-time:before {
-    display: none; /* 인쇄 시 이모지 제거 */
+    display: none;
+    /* 인쇄 시 이모지 제거 */
   }
 
-  /* 활동 태그 크기 조정 */
+  /* 활동 태그 인쇄 최적화 */
   .activity-tag {
-    font-size: 7pt;
-    padding: 2px 4px;
-    margin-bottom: 2px;
-    line-height: 1.2;
+    font-size: 8pt !important;
+    padding: 1px 3px !important;
+    margin-bottom: 1px !important;
+    line-height: 1.1 !important;
+    font-weight: 400 !important;
   }
 
   /* 빈 셀 스타일 */
   .empty-indicator {
     font-size: 9pt;
   }
+
   /* 테이블 전체를 감싸는 컨테이너에 테두리 추가 */
   .timetable-container {
     border: 2px solid #cccccc !important;
@@ -792,6 +818,29 @@ small {
   /* 하단 정보 숨김 */
   .footer {
     display: none;
+  }
+
+  /* 크롬과 엣지 브라우저 호환성을 위한 페이지 나누기 설정 */
+  table {
+    page-break-inside: auto;
+  }
+  
+  /* 크롬에서 자연스러운 페이지 나누기를 위해 break-inside 제거 */
+  tr {
+    break-inside: auto;
+    page-break-inside: auto;
+  }
+  
+  /* 테이블 헤더는 각 페이지에서 반복되도록 유지 */
+  thead {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  
+  /* 빈 페이지 방지 */
+  tbody tr:last-child {
+    break-after: auto;
+    page-break-after: auto;
   }
 }
 
@@ -874,10 +923,8 @@ small {
   }
 
   .activity-tag {
-    font-size: clamp(0.6rem, 3vw, 0.8rem);
-    font-family: "Pretendard", "IBM Plex Sans KR", "Noto Sans KR", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    padding: var(--spacing-xs) var(--spacing-sm);
-    letter-spacing: -0.01em;
+    font-size: 0.7rem;
+    padding: 3px 6px;
   }
 
   .empty-indicator {
@@ -886,11 +933,13 @@ small {
 
   /* 모바일 터치 최적화 */
   .week-btn,
-  .print-btn,
-  .activity-tag {
-    min-height: 44px; /* 터치 타겟 최소 크기 */
+  .print-btn {
+    min-height: 44px;
+    /* 터치 타겟 최소 크기 */
     min-width: 44px;
   }
+  
+
 }
 
 /* 태블릿 최적화 (768px ~ 1023px) */
@@ -925,9 +974,8 @@ small {
   }
 
   .activity-tag {
-    font-size: clamp(0.75rem, 2vw, 0.9rem);
-    font-family: "Pretendard", "IBM Plex Sans KR", "Noto Sans KR", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    letter-spacing: -0.01em;
+    font-size: 0.8rem;
+    padding: 3px 7px;
   }
 }
 
@@ -983,6 +1031,7 @@ small {
 
 /* 터치 디바이스 전용 스타일 */
 @media (hover: none) and (pointer: coarse) {
+
   /* 호버 효과를 터치 피드백으로 대체 */
   .week-btn:hover {
     transform: none;
