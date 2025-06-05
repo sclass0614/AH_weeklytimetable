@@ -629,6 +629,7 @@ small {
   border-radius: var(--border-radius);
   font-size: clamp(0.8rem, 2vw, 0.95rem);
   font-weight: 600;
+  font-family: "Pretendard", "IBM Plex Sans KR", "Noto Sans KR", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   text-align: center;
   transition: var(--transition);
   cursor: pointer;
@@ -637,6 +638,7 @@ small {
   word-wrap: break-word;
   overflow-wrap: break-word;
   hyphens: auto;
+  letter-spacing: -0.01em;
 }
 
 .activity-tag:hover {
@@ -753,7 +755,7 @@ small {
 
   /* 활동 태그 크기 조정 */
   .activity-tag {
-    font-size: 8pt;
+    font-size: 7pt;
     padding: 2px 4px;
     margin-bottom: 2px;
     line-height: 1.2;
@@ -855,7 +857,9 @@ small {
 
   .activity-tag {
     font-size: clamp(0.6rem, 3vw, 0.8rem);
+    font-family: "Pretendard", "IBM Plex Sans KR", "Noto Sans KR", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     padding: var(--spacing-xs) var(--spacing-sm);
+    letter-spacing: -0.01em;
   }
 
   .empty-indicator {
@@ -904,6 +908,8 @@ small {
 
   .activity-tag {
     font-size: clamp(0.75rem, 2vw, 0.9rem);
+    font-family: "Pretendard", "IBM Plex Sans KR", "Noto Sans KR", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    letter-spacing: -0.01em;
   }
 }
 
