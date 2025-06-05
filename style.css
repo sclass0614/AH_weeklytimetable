@@ -734,14 +734,13 @@ small {
   /* 시간표 컨테이너 */
   .timetable-container {
     box-shadow: none;
-    border: none;
     padding-bottom: 15px;
   }
 
   /* 시간표 테이블 */
   .timetable-table {
     width: 100%;
-    /* border-collapse: collapse; */
+    border-collapse: collapse;
   }
 
   .timetable-table th,
@@ -809,11 +808,7 @@ small {
     font-size: 9pt;
   }
 
-  /* 테이블 전체를 감싸는 컨테이너에 테두리 추가 */
-  .timetable-container {
-    border: 2px solid #cccccc !important;
-    margin-bottom: 20px !important;
-  }
+
 
   /* 하단 정보 숨김 */
   .footer {
